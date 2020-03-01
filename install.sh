@@ -35,7 +35,8 @@ mv transmission_remove_finished.sh .rtorrents.sh
 
 mkdir c
 mkdir s
+chown -R $USER:$USER c
+chown -R $USER:$USER s
 chmod -R 777 c
 chmod -R 777 s
-sudo chown -R $USER:$USER c
-sudo chown -R $USER:$USER s
+
