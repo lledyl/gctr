@@ -35,3 +35,7 @@ sudo mkdir /c
 sudo chown -R $USER:$USER /c
 sudo chmod -R 777 /c
 sudo cp -r /c /s
+
+echo "sudo nano /etc/transmission-daemon/settings.json" >> help.txt
+echo "~/flexget/bin/flexget --test execute" >> help.txt
+echo "sudo service transmission-daemon start" >> help.txt
