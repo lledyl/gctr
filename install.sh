@@ -28,7 +28,7 @@ cd $home
 wget https://raw.githubusercontent.com/lledyl/gctr/master/gsupload.sh -O gsupload.sh
 chmod +x gsupload.sh
 wget https://raw.githubusercontent.com/lledyl/gctr/master/config.yml -O config.yml
-wget https://github.com/lledyl/gctr/blob/master/gfilter.txt -O gfilter.txt
+wget https://raw.githubusercontent.com/lledyl/gctr/master/gfilter.txt -O gfilter.txt
 wget https://gist.githubusercontent.com/pawelszydlo/e2e1fc424f2c9d306f3a/raw/c26087d4b4f696bd373b02c0e294fb92dec1039a/transmission_remove_finished.sh -O transmission_remove_finished.sh
 mv transmission_remove_finished.sh .rtorrents.sh
 sudo mkdir /c
