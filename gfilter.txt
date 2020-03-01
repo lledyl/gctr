@@ -1,0 +1,9 @@
+# a sample include rule file
+*.mkv
+*.mp4
+*.avi
+*.wmv
+*.MKV
+*.MP4
+*.AVI
+*.WMV
