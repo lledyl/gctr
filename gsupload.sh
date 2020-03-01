@@ -28,40 +28,29 @@ else
 fi
 
 echo "finding and printing files to delete"
-sudo chown -R lledyl:lledyl ~/c/ktr/*
+sudo chown -R lledyl:lledyl ~/c/*
 #find ~/c/ \( -name '*SAMPLE*'  -o -name '*-sample.mp4' -o -name '*.nfo' -o -name '*.jpg'  -o -name '*.txt' -o -name '*.url' -o -name '*.png' -o -name '*.gif' -o -name '*.htm*' -o -name '*.exe' \) -type f -print
 find ~/c/ \( -name '*SAMPLE*' -o -name '*-sample.mp4' -o -name '*.nfo' -o -name '*.jpg'  -o -name '*.txt' -o -name '*.url' -o -name '*.png' -o -name '*.gif' -o -name '*.htm*' -o -name '*.exe' \) -type f -delete
 
-mv ~/c/ktr/*/*.mp4 /home/lledyl/c/ktr/
-mv ~/c/dvdrip/*/*.mp4 /home/lledyl/c/dvdrip/
-find ~/c/ktr/*  -type d -empty -delete
-find ~/c/dvdrip/*  -type d -empty -delete
+mv ~/c/*/*.mp4 /home/lledyl/c/
+#mv ~/c/dvdrip/*/*.mp4 /home/lledyl/c/dvdrip/
+find ~/c/*  -type d -empty -delete
+#find ~/c/dvdrip/*  -type d -empty -delete
 
-rclone copy   ~/c/ktr/ k:0220/  --min-age 61s --include-from .gfilter.txt --size-only -P
-mv ~/c/ktr/*/*.mp4 /home/lledyl/c/ktr/
-mv ~/c/dvdrip/*/*.mp4 /home/lledyl/c/dvdrip/
-find ~/c/ktr/*  -type d -empty -delete
-find ~/c/dvdrip/*  -type d -empty -delete
-rclone move   ~/c/ktr/ gs:t/k/0320/  --min-age 61s --include-from .gfilter.txt --size-only --delete-empty-src-dirs --ignore-existing -P
-
-mv ~/c/ktr/*/*.mp4 /home/lledyl/c/ktr/
-mv ~/c/dvdrip/*/*.mp4 /home/lledyl/c/dvdrip/
-find ~/c/ktr/*  -type d -empty -delete
-find ~/c/dvdrip/*  -type d -empty -delete
-
-rclone copy   ~/c/dvdrip/ d:0220/ --min-age 61s --include-from .gfilter.txt --size-only -P
-mv ~/c/ktr/*/*.mp4 /home/lledyl/c/ktr/
-mv ~/c/dvdrip/*/*.mp4 /home/lledyl/c/dvdrip/
-find ~/c/ktr/*  -type d -empty -delete
-find ~/c/dvdrip/*  -type d -empty -delete
-rclone move   ~/c/dvdrip/ gs:t/d/0320/ --min-age 61s --include-from .gfilter.txt --size-only --delete-empty-src-dirs --ignore-existing -P
+rclone copy   ~/c/ gs:0320/  --min-age 61s --include-from .gfilter.txt --size-only -P
+mv ~/c/*/*.mp4 /home/lledyl/c/
+find ~/c/*  -type d -empty -delete
+rclone move   ~/c/ gs:t/k/0320/  --min-age 61s --include-from .gfilter.txt --size-only --delete-empty-src-dirs --ignore-existing -P
+#mv ~/c/*/*.mp4 /home/lledyl/c/
+#find ~/c/*  -type d -empty -delete
+#rclone copy   ~/c/dvdrip/ d:0220/ --min-age 61s --include-from .gfilter.txt --size-only -P
+#mv ~/c/*/*.mp4 /home/lledyl/c/
+#find ~/c/*  -type d -empty -delete
+#rclone move   ~/c/dvdrip/ gs:t/d/0320/ --min-age 61s --include-from .gfilter.txt --size-only --delete-empty-src-dirs --ignore-existing -P
 
 echo "finished copy"
-
-mv ~/c/ktr/*/*.mp4 /home/lledyl/c/ktr/
-mv ~/c/dvdrip/*/*.mp4 /home/lledyl/c/dvdrip/
-find ~/c/ktr/*  -type d -empty -delete
-find ~/dvdrip/*  -type d -empty -delete
+mv ~/c/*/*.mp4 /home/lledyl/c/
+find ~/c/*  -type d -empty -delete
 
 echo "cleaning torrent queue"
 sh .rtorrents.sh
