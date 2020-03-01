@@ -32,9 +32,11 @@ wget https://github.com/lledyl/gctr/blob/master/gfilter.txt -O gfilter.txt
 wget https://gist.githubusercontent.com/pawelszydlo/e2e1fc424f2c9d306f3a/raw/c26087d4b4f696bd373b02c0e294fb92dec1039a/transmission_remove_finished.sh -O transmission_remove_finished.sh
 mv transmission_remove_finished.sh .rtorrents.sh
 sudo mkdir /c
-sudo chown -R $USER:$USER /c
+sudo mkdir /s
 sudo chmod -R 777 /c
-sudo cp -r /c /s
+sudo chmod -R 777 /s
+sudo chown -R $USER:$USER /c
+sudo chown -R $USER:$USER /s
 
 echo "sudo nano /etc/transmission-daemon/settings.json" >> help.txt
 echo "~/flexget/bin/flexget --test execute" >> help.txt
