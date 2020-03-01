@@ -10,6 +10,7 @@ python3 -m venv ~/flexget/
 cd ~/flexget/
 bin/pip install flexget
 pip install transmissionrpc
+cd $home
 sudo apt-get -y install transmission-cli  transmission-daemon
 sudo service transmission-daemon stop
 wget https://raw.githubusercontent.com/lledyl/gctr/master/settings.json
