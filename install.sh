@@ -10,8 +10,8 @@ sudo apt-get -y install python3-venv
 python3 -m venv ~/flexget/
 cd ~/flexget/
 bin/pip install flexget
-pip install transmissionrpc
 cd $home
+pip install transmissionrpc
 sudo apt-get -y install transmission-cli  transmission-daemon
 sudo usermod -a -G debian-transmission $USER
 sudo service transmission-daemon restart
