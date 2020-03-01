@@ -17,10 +17,7 @@ sudo mv settings.json /etc/transmission-daemon/settings.json
 sudo usermod -a -G debian-transmission $USER
 
 sudo service transmission-daemon start
-mkdir c
-mkdir s
-chmod -R 777 c
-chmod -R 777 s
+
 cd /usr/share/transmission/
 sudo wget https://github.com/Secretmapper/combustion/archive/release.zip
 sudo unzip -o release.zip
@@ -33,3 +30,8 @@ chmod +x gsupload.sh
 wget https://github.com/lledyl/gctr/blob/master/gfilter.txt
 wget https://gist.githubusercontent.com/pawelszydlo/e2e1fc424f2c9d306f3a/raw/c26087d4b4f696bd373b02c0e294fb92dec1039a/transmission_remove_finished.sh
 mv transmission_remove_finished.sh .rtorrents.sh
+
+mkdir c
+mkdir s
+chmod -R 777 c
+chmod -R 777 s
