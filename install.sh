@@ -12,6 +12,8 @@ bin/pip install flexget
 pip install transmissionrpc
 sudo apt-get -y install transmission-cli  transmission-daemon
 sudo service transmission-daemon stop
+wget https://raw.githubusercontent.com/lledyl/gctr/master/settings.json
+sudo mv settings.json /etc/transmission-daemon/settings.json
 sudo usermod -a -G debian-transmission $USER
 sudo service transmission-daemon start
 mkdir c
