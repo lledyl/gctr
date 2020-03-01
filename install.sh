@@ -39,4 +39,4 @@ sudo chown -R $USER:$USER c
 sudo chown -R $USER:$USER s
 chmod -R 777 c
 chmod -R 777 s
-sudo nano /etc/transmission-daemon/settings.json 
+
