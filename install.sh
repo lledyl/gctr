@@ -15,6 +15,11 @@ sudo service transmission-daemon stop
 wget https://raw.githubusercontent.com/lledyl/gctr/master/settings.json
 sudo mv settings.json /etc/transmission-daemon/settings.json
 sudo usermod -a -G debian-transmission $USER
+wget https://raw.githubusercontent.com/lledyl/gctr/master/gsupload.sh
+chmod +x gsupload.sh
+wget https://github.com/lledyl/gctr/blob/master/gfilter.txt
+wget https://gist.githubusercontent.com/pawelszydlo/e2e1fc424f2c9d306f3a/raw/c26087d4b4f696bd373b02c0e294fb92dec1039a/transmission_remove_finished.sh
+mv transmission_remove_finished.sh .rtorrents.sh
 sudo service transmission-daemon start
 mkdir c
 mkdir s
