@@ -1,0 +1,10 @@
+tasks:
+  task-a:
+    rss: https://rarbg.to/rssdd.php?category=4
+    quality:
+      - 1080p
+    regexp:
+      accept:
+        - KTR
+    transmission:
+      path: /home/lledyl/c/
