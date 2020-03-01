@@ -23,7 +23,7 @@ chmod -R 777 c
 chmod -R 777 s
 cd /usr/share/transmission/
 sudo wget https://github.com/Secretmapper/combustion/archive/release.zip
-sudo unzip release.zip
+sudo unzip -o release.zip
 sudo mv web web_orig
 sudo mv combustion-release/ web
 sudo rm release.zip
