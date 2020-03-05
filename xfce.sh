@@ -6,3 +6,6 @@ sudo apt-get install -y screen
 sudo apt-get install -y xrdp
 sudo apt-get install -y xfce4
 sudo service xrdp restart
+sudo -s
+passwd
+
