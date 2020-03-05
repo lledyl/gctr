@@ -1,4 +1,5 @@
 sudo apt-get update
+sudo apt-get install -y firefox
 sudo apt-get install -y unzip
 sudo apt-get install -y nano
 sudo apt-get install -y bmon
