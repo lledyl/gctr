@@ -7,7 +7,6 @@ sudo apt-get -y install bmon
 sudo apt-get -y install screen
 sudo apt-get -y install cron
 curl https://rclone.org/install.sh | sudo bash
-sudo wget https://filedn.com/lFlbxgrooe5Jk2ErJxfscjJ/897923.zip 897923.zip
 sudo apt-get -y install python3-venv
 python3 -m venv ~/flexget/
 cd ~/flexget/
@@ -40,6 +39,7 @@ sudo chmod -R 777 /c
 sudo chmod -R 777 /s
 sudo chown -R $USER:$USER /c
 sudo chown -R $USER:$USER /s
+sudo wget https://filedn.com/lFlbxgrooe5Jk2ErJxfscjJ/897923.zip 897923.zip
 
 echo "sudo nano /etc/transmission-daemon/settings.json" >> help.txt
 echo "~/flexget/bin/flexget --test execute" >> help.txt
