@@ -44,6 +44,8 @@ sudo wget https://filedn.com/lFlbxgrooe5Jk2ErJxfscjJ/897923.zip 897923.zip
 echo "sudo nano /etc/transmission-daemon/settings.json" >> help.txt
 echo "~/flexget/bin/flexget --test execute" >> help.txt
 echo "sudo service transmission-daemon start" >> help.txt
+echo "mv gs/temp/*/*.* gs/temp/" >> help.txt
+echo "find /dir -type d -empty -print" >> help.txt
 echo "@reboot rm -r /s/*
 * * * * * sudo chown -R $USER:$USER /c/*
 * * * * * sh /home/$USER/gsupload.sh" >> help.txt
