@@ -37,10 +37,10 @@ mv /c/*/*.mp4 /c/
 find /c/*  -type d -empty -delete
 #find /c/dvdrip/*  -type d -empty -delete
 
-rclone copy   /c/ gs:t/temp/0320/  --min-age 61s --include-from gfilter.txt --size-only -P
+rclone copy   /c/ gs:temp/  --min-age 61s --include-from gfilter.txt --size-only -P
 mv /c/*/*.mp4 ~/c/
 find /c/*  -type d -empty -delete
-rclone move   /c/ gs:t/temp/0320/  --min-age 61s --include-from gfilter.txt --size-only --delete-empty-src-dirs --ignore-existing -P
+rclone move   /c/ gs:temp/  --min-age 61s --include-from gfilter.txt --size-only --delete-empty-src-dirs --ignore-existing -P
 #mv /c/*/*.mp4 /c/
 #find /c/*  -type d -empty -delete
 #rclone copy   /c/dvdrip/ d:0220/ --min-age 61s --include-from gfilter.txt --size-only -P
