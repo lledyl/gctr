@@ -27,33 +27,27 @@ else
   fi
 fi
 
-echo "finding and printing files to delete"
 sudo chown -R $USER:$USER /c/*
-#find /c/ \( -name '*SAMPLE*'  -o -name '*-sample.mp4' -o -name '*.nfo' -o -name '*.jpg'  -o -name '*.txt' -o -name '*.url' -o -name '*.png' -o -name '*.gif' -o -name '*.htm*' -o -name '*.exe' \) -type f -print
-find /c/ \( -name '*SAMPLE*' -o -name '*-sample.mp4' -o -name '*.nfo' -o -name '*.jpg'  -o -name '*.txt' -o -name '*.url' -o -name '*.png' -o -name '*.gif' -o -name '*.htm*' -o -name '*.exe' \) -type f -delete
 
+find /c/ \( -name '*.srt' -o -name '*sample.mp4' -o -name '*.nfo' -o -name '*.jpg'  -o -name '*.txt' -o -name '*.url' -o -name '*.png' -o -name '*.gif' -o -name '*.htm*' -o -name '*.exe' -o -name '*.zip' \) -type f -delete
+
+sudo chown -R $USER:$USER /c/*
 mv /c/*/*.mp4 /c/
-#mv /c/dvdrip/*/*.mp4 /c/dvdrip/
+mv /c/*/*.mkv /c/
+mv /c/*/*.wma /c/
 find /c/*  -type d -empty -delete
-#find /c/dvdrip/*  -type d -empty -delete
-
 rclone copy   /c/ gs:temp/  --min-age 61s --include-from gfilter.txt --size-only -P
+
+sudo chown -R $USER:$USER /c/*
 mv /c/*/*.mp4 ~/c/
+mv /c/*/*.mkv /c/
+mv /c/*/*.wma /c/
 find /c/*  -type d -empty -delete
 rclone move   /c/ gs:temp/  --min-age 61s --include-from gfilter.txt --size-only --delete-empty-src-dirs --ignore-existing -P
-#mv /c/*/*.mp4 /c/
-#find /c/*  -type d -empty -delete
-#rclone copy   /c/dvdrip/ d:0220/ --min-age 61s --include-from gfilter.txt --size-only -P
-#mv /c/*/*.mp4 /c/
-#find /c/*  -type d -empty -delete
-#rclone move   /c/dvdrip/ gs:t/d/0320/ --min-age 61s --include-from gfilter.txt --size-only --delete-empty-src-dirs --ignore-existing -P
 
-echo "finished copy"
-mv /c/*/*.mp4 /c/
-find /c/*  -type d -empty -delete
-
-echo "cleaning torrent queue"
 sh .rtorrents.sh
-echo "finished"
 
 rm $PIDFILE
+
+
+
