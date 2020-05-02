@@ -6,6 +6,7 @@ sudo apt-get -y install nano
 sudo apt-get -y install bmon
 sudo apt-get -y install screen
 sudo apt-get -y install cron
+sudo apt-get -y install vim
 curl https://rclone.org/install.sh | sudo bash
 sudo apt-get -y install python3-venv
 python3 -m venv ~/flexget/
@@ -21,4 +22,3 @@ echo "mv gs/temp/*/*.* gs/temp/" >> help.txt
 echo "find /dir -type d -empty -print" >> help.txt
 echo "@reboot rm -r /s/*
 * * * * * sudo chown -R $USER:$USER /c/*
-* * * * * sh /home/$USER/gsupload.sh" >> help.txt
