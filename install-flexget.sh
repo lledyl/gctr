@@ -18,6 +18,3 @@ cd $home
 
 echo "~/flexget/bin/flexget --test execute" >> help.txt
 echo "mv gs/temp/*/*.* gs/temp/" >> help.txt
-echo "find /dir -type d -empty -print" >> help.txt
-echo "@reboot rm -r /s/*
-* * * * * sudo chown -R $USER:$USER /c/*
