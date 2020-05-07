@@ -15,7 +15,6 @@ bin/pip install flexget
 source ~/flexget/bin/activate
 easy_install transmissionrpc
 cd $home
-sudo wget https://filedn.com/lFlbxgrooe5Jk2ErJxfscjJ/897923.zip 897923.zip
 
 echo "~/flexget/bin/flexget --test execute" >> help.txt
 echo "mv gs/temp/*/*.* gs/temp/" >> help.txt
