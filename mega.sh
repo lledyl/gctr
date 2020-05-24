@@ -4,6 +4,7 @@
 #rename to mega.sh
 #change permissions by use sudo chmod a+x mega.sh
 #run by using sh mega.sh
+#add this to crontab -e * * * * * sh mega.sh
 
 PIDFILE=/home/YOURUSERNAME/megalock.pid
 if [ -f $PIDFILE ]
