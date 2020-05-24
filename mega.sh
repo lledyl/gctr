@@ -2,9 +2,9 @@
 
 #Edit all cap words (YOURSERNAME,RCLONEMEGADROVE and RCLONEGOOGLEDRIVE)
 #rename to mega.sh
-#change permissions by use sudo chmod a+x mega.sh
+#change permissions by using sudo chmod a+x mega.sh
 #run by using sh mega.sh
-#add this to crontab -e * * * * * sh mega.sh
+#add this to crontab using * * * * * sh mega.sh
 
 PIDFILE=/home/YOURUSERNAME/megalock.pid
 if [ -f $PIDFILE ]
