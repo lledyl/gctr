@@ -35,6 +35,6 @@ fi
 echo "start mega copy"
 rclone copy RCLNOEMEGADRIVE: RCLONEGOOGLEDRIVE: --transfers 1 --drive-chunk-size 32M --bwlimit 225k --size-only  --ignore-existing -P
 echo "finished copy... starting clean up"
-rclone move RCLONEMEGADRIVE: RCLONEGOOGLEFRIVE: --transfers 1 --drive-chunk-size 32M --bwlimit 225k --size-only  --ignore-existing --de>
+rclone move RCLONEMEGADRIVE: RCLONEGOOGLEFRIVE: --transfers 1 --drive-chunk-size 32M --bwlimit 225k --size-only  --ignore-existing --delete-empty-src-dirs --delete-after -P
 echo "finished clean up"
 rm $PIDFILE
