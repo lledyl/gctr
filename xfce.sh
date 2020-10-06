@@ -1,3 +1,5 @@
+sudo apt-get update
+sudo apt-get install software-properties-common
 add-apt-repository -y ppa:nowrep/qupzilla
 sudo apt-get update
 sudo apt-get install qupzilla
