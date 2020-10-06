@@ -1,8 +1,8 @@
 sudo apt-get update
-sudo apt-get install software-properties-common
+sudo apt-get install -y software-properties-common
 add-apt-repository -y ppa:nowrep/qupzilla
 sudo apt-get update
-sudo apt-get install qupzilla
+sudo apt-get install -y qupzilla
 sudo apt-get install -y leafpad
 sudo apt-get install -y unzip
 sudo apt-get install -y nano
