@@ -39,6 +39,11 @@ sudo chmod -R 777 /c
 sudo chmod -R 777 /s
 sudo chown -R $USER:$USER /c
 sudo chown -R $USER:$USER /s
+sudo mkdir /c/rarbg
+cd /c/rarbg
+touch deletemeifyoucan
+sudo chattr +i deletemeifyoucan
+cd $home
 
 echo "sudo nano /etc/transmission-daemon/settings.json" >> help.txt
 echo "~/flexget/bin/flexget --test execute" >> help.txt
