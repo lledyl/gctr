@@ -12,7 +12,7 @@ python3 -m venv ~/flexget/
 cd ~/flexget/
 bin/pip install flexget
 source ~/flexget/bin/activate
-easy_install transmissionrpc
+pip install transmission-rpc -U
 cd $home
 sudo apt-get -y install transmission-cli  transmission-daemon
 sudo service transmission-daemon stop
