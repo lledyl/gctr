@@ -36,9 +36,9 @@ tput setaf 7;
 find /completed/ \( -name '*sample.mp4' -o -name '*.nfo' -o -name '*.jpeg' -o -name '*.jpg'  -o -name '*.txt' -o -name '*.url' -o -name '*.png' -o -name '*.gif' -o -name '*.htm*' -o -name '*.exe' -o -name '*.zip' \) -type f -delete
 tput setaf 2;  echo "Moving files"
 tput setaf 7;
-mv /completed/*/*.mp4 /c/rarbg
-mv /completed/*/*.mkv /c/rarbg
-mv /completed/*/*.wma /c/rarbg
+mv /completed/*/*.mp4 /completed/video_files_only
+mv /completed/*/*.mkv /completed/video_files_only
+mv /completed/*/*.wma /completed/video_files_only
 mv /completed/video_files_only/*-A.mp4 /c
 mv /completed/video_files_only/*-B.mp4 /c
 mv /completed/video_files_only/*-C.mp4 /c
