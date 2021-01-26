@@ -46,6 +46,13 @@ sudo touch deletemeifyoucan
 sudo chattr +i deletemeifyoucan
 cd $home
 
+alias flextest='~/flexget/bin/flexget --test execute'
+alias flexget='~/flexget/bin/flexget execute'
+alias esettings='sudo nano /etc/transmission-daemon/settings.json'
+alias tstop='sudo service transmission-daemon start'
+alias tstart='sudo service transmission-daemon stop'
+alias trestart='sudo service transmission-daemon restart'
+
 echo "sudo nano /etc/transmission-daemon/settings.json" >> help_commmands.txt
 echo "~/flexget/bin/flexget --test execute" >> help_commmands.txt
 echo "sudo service transmission-daemon start stop restart" >> help_commmands.txt
