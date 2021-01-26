@@ -63,7 +63,7 @@ echo "find /dir -type d -empty -print -delete" >> help_commmands.txt
 
 crontab -l > mycron
 echo "* * * * * sh /home/$USER/upload.sh" >> mycron
-echo "*/30 * * * * ~/flexget/bin/flexget execute" >> mycron
+echo "#*/30 * * * * ~/flexget/bin/flexget execute" >> mycron
 echo "* * * * * sudo chown -R $USER:$USER /completed/*" >> mycron
 echo "*/15 * * * * sh .clean_transmission.sh" >> mycron
 echo "#@reboot rm -r /session/*" >> mycron
