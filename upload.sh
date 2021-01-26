@@ -33,26 +33,26 @@ tput setaf 7;
 sudo chown -R $USER:$USER /completed/*
 tput setaf 2; echo "Delete torrent waste files"
 tput setaf 7;
-find /completed/ \( -name '*.srt' -o -name '*sample.mp4' -o -name '*.nfo' -o -name '*.jpeg' -o -name '*.jpg'  -o -name '*.txt' -o -name '*.url' -o -name '*.png' -o -name '*.gif' -o -name '*.htm*' -o -name '*.exe' -o -name '*.zip' \) -type f -delete
+find /completed/ \( -name '*sample.mp4' -o -name '*.nfo' -o -name '*.jpeg' -o -name '*.jpg'  -o -name '*.txt' -o -name '*.url' -o -name '*.png' -o -name '*.gif' -o -name '*.htm*' -o -name '*.exe' -o -name '*.zip' \) -type f -delete
 tput setaf 2;  echo "Moving files"
 tput setaf 7;
 mv /completed/*/*.mp4 /c/rarbg
 mv /completed/*/*.mkv /c/rarbg
 mv /completed/*/*.wma /c/rarbg
-mv /completed/rarbg/*-A.mp4 /c
-mv /completed/rarbg/*-B.mp4 /c
-mv /completed/rarbg/*-C.mp4 /c
-mv /completed/rarbg/*-D.mp4 /c
-mv /completed/rarbg/*-E.mp4 /c
+mv /completed/video_files_only/*-A.mp4 /c
+mv /completed/video_files_only/*-B.mp4 /c
+mv /completed/video_files_only/*-C.mp4 /c
+mv /completed/video_files_only/*-D.mp4 /c
+mv /completed/video_files_only/*-E.mp4 /c
 tput setaf 2; echo "Delete empty folders"
 tput setaf 7;
-find /completed/rarbg/*  -type d -empty -delete
+find /completed/video_files_only/*  -type d -empty -delete
 tput setaf 2; echo "Moving files to Google drive"
 tput setaf 7;
 rclone move   /completed rclone_drive:folder  --min-age 61s --include-from filter.txt --size-only --delete-empty-src-dirs --ignore-existing -P --log-file=mylogfile.txt --drive-stop-on-upload-limit
 tput setaf 2; echo "Cleaning transmission"
 tput setaf 7;
-sh .rtorrents.sh
+sh .clean_transmission.sh
 tput setaf 2; echo "Delete lock file"
 rm $PIDFILE
 echo "Done"
