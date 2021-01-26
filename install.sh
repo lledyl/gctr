@@ -41,7 +41,7 @@ sudo chown -R $USER:$USER /c
 sudo chown -R $USER:$USER /s
 sudo mkdir /c/rarbg
 cd /c/rarbg
-touch deletemeifyoucan
+sudo touch deletemeifyoucan
 sudo chattr +i deletemeifyoucan
 cd $home
 
@@ -53,3 +53,10 @@ echo "find /dir -type d -empty -print" >> help.txt
 echo "@reboot rm -r /s/*
 * * * * * sudo chown -R $USER:$USER /c/*
 * * * * * sh /home/$USER/gsupload.sh" >> help.txt
+
+crontab -l > mycron
+echo "* * * * * sudo chown -R $USER:$USER /c/*" >> mycron
+yecho "*/30 * * * * ~/flexget/bin/flexget execute" >> mycron
+echo "*/15 * * * * sh .rtorrents.sh" >> mycron
+crontab mycron
+rm mycron
