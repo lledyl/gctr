@@ -56,7 +56,7 @@ echo "@reboot rm -r /s/*
 
 crontab -l > mycron
 echo "* * * * * sudo chown -R $USER:$USER /c/*" >> mycron
-yecho "*/30 * * * * ~/flexget/bin/flexget execute" >> mycron
+echo "*/30 * * * * ~/flexget/bin/flexget execute" >> mycron
 echo "*/15 * * * * sh .rtorrents.sh" >> mycron
 crontab mycron
 rm mycron
