@@ -46,6 +46,8 @@ sudo touch deletemeifyoucan
 sudo chattr +i deletemeifyoucan
 cd $home
 
+
+alias upload='sh /home/$USER/upload.sh'
 alias flextest='~/flexget/bin/flexget --test execute'
 alias flexget='~/flexget/bin/flexget execute'
 alias esettings='sudo nano /etc/transmission-daemon/settings.json'
