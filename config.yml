@@ -1,10 +1,10 @@
 tasks:
   task-a:
-    rss: https://rarbg.to/rssdd.php?category=4
+    rss: https://rarbg.to/rssdd.php?categories=14;15;16;17;21;22;42;44;45;46;47;48
     quality:
       - 1080p
     regexp:
       accept:
-        - KTR
+        - webrip
     transmission:
-      path: /c
+      path: /completed
