@@ -1,6 +1,6 @@
 #!/bin/bash
 tput setaf 2; echo "Checking duplicate process"
-PIDFILE=~/.glock.pid
+PIDFILE=~/.lock.pid
 if [ -f $PIDFILE ]
 then
   PID=$(cat $PIDFILE)
