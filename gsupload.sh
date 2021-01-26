@@ -30,26 +30,26 @@ fi
 tput setaf 2; echo "No duplicate process found"
 tput setaf 2; echo "Change permissions"
 tput setaf 7;
-sudo chown -R $USER:$USER /c/*
+sudo chown -R $USER:$USER /completed/*
 tput setaf 2; echo "Delete torrent waste files"
 tput setaf 7;
-find /c/ \( -name '*.srt' -o -name '*sample.mp4' -o -name '*.nfo' -o -name '*.jpeg' -o -name '*.jpg'  -o -name '*.txt' -o -name '*.url' -o -name '*.png' -o -name '*.gif' -o -name '*.htm*' -o -name '*.exe' -o -name '*.zip' \) -type f -delete
+find /completed/ \( -name '*.srt' -o -name '*sample.mp4' -o -name '*.nfo' -o -name '*.jpeg' -o -name '*.jpg'  -o -name '*.txt' -o -name '*.url' -o -name '*.png' -o -name '*.gif' -o -name '*.htm*' -o -name '*.exe' -o -name '*.zip' \) -type f -delete
 tput setaf 2;  echo "Moving files"
 tput setaf 7;
-mv /c/*/*.mp4 /c/rarbg
-mv /c/*/*.mkv /c/rarbg
-mv /c/*/*.wma /c/rarbg
-mv /c/rarbg/*-A.mp4 /c
-mv /c/rarbg/*-B.mp4 /c
-mv /c/rarbg/*-C.mp4 /c
-mv /c/rarbg/*-D.mp4 /c
-mv /c/rarbg/*-E.mp4 /c
+mv /completed/*/*.mp4 /c/rarbg
+mv /completed/*/*.mkv /c/rarbg
+mv /completed/*/*.wma /c/rarbg
+mv /completed/rarbg/*-A.mp4 /c
+mv /completed/rarbg/*-B.mp4 /c
+mv /completed/rarbg/*-C.mp4 /c
+mv /completed/rarbg/*-D.mp4 /c
+mv /completed/rarbg/*-E.mp4 /c
 tput setaf 2; echo "Delete empty folders"
 tput setaf 7;
-find /c/rarbg/*  -type d -empty -delete
+find /completed/rarbg/*  -type d -empty -delete
 tput setaf 2; echo "Moving files to Google drive"
 tput setaf 7;
-rclone move   /c rclone_drive:folder  --min-age 61s --include-from filter.txt --size-only --delete-empty-src-dirs --ignore-existing -P --log-file=mylogfile.txt --drive-stop-on-upload-limit
+rclone move   /completed rclone_drive:folder  --min-age 61s --include-from filter.txt --size-only --delete-empty-src-dirs --ignore-existing -P --log-file=mylogfile.txt --drive-stop-on-upload-limit
 tput setaf 2; echo "Cleaning transmission"
 tput setaf 7;
 sh .rtorrents.sh
