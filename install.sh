@@ -67,6 +67,6 @@ sudo chown -R $USER:$USER /completed
 sudo chown -R $USER:$USER /session
 sudo mkdir /completed/video_files_only
 cd /completed/video_files_only
-sudo touch deletemeifyoucan
-sudo chattr +i deletemeifyoucan
+sudo touch .deletemeifyoucan
+sudo chattr +i .deletemeifyoucan
 cd $home
