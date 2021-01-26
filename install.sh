@@ -70,4 +70,3 @@ cd /completed/video_files_only
 sudo touch deletemeifyoucan
 sudo chattr +i deletemeifyoucan
 cd $home
-
