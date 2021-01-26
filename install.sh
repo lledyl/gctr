@@ -34,17 +34,7 @@ wget https://raw.githubusercontent.com/lledyl/gctr/master/config.yml -O config.y
 wget https://raw.githubusercontent.com/lledyl/gctr/master/filter.txt -O filter.txt
 wget https://gist.githubusercontent.com/pawelszydlo/e2e1fc424f2c9d306f3a/raw/c26087d4b4f696bd373b02c0e294fb92dec1039a/transmission_remove_finished.sh -O transmission_remove_finished.sh
 mv transmission_remove_finished.sh .clean_transmission.sh
-sudo mkdir /completed
-sudo mkdir /session
-sudo chmod -R 777 /completed
-sudo chmod -R 777 /session
-sudo chown -R $USER:$USER /completed
-sudo chown -R $USER:$USER /session
-sudo mkdir /completed/video_files_only
-cd /completed/video_files_only
-sudo touch deletemeifyoucan
-sudo chattr +i deletemeifyoucan
-cd $home
+
 
 echo "sudo nano /etc/transmission-daemon/settings.json" >> help_commmands.txt
 echo "~/flexget/bin/flexget --test execute" >> help_commmands.txt
@@ -68,3 +58,16 @@ alias tstart='sudo service transmission-daemon start'
 alias tstop='sudo service transmission-daemon stop'
 alias trestart='sudo service transmission-daemon restart'
 alias addswap='curl https://raw.githubusercontent.com/lledyl/gctr/master/addswap.sh | sudo bash'
+
+sudo mkdir /completed
+sudo mkdir /session
+sudo chmod -R 777 /completed
+sudo chmod -R 777 /session
+sudo chown -R $USER:$USER /completed
+sudo chown -R $USER:$USER /session
+sudo mkdir /completed/video_files_only
+cd /completed/video_files_only
+sudo touch deletemeifyoucan
+sudo chattr +i deletemeifyoucan
+cd $home
+
