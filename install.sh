@@ -1,4 +1,5 @@
 #!/bin/bash/
+#Install on Ubuntu 20 LTS
 
 sudo apt-get update
 sudo apt-get -y install unzip
@@ -33,30 +34,29 @@ wget https://raw.githubusercontent.com/lledyl/gctr/master/config.yml -O config.y
 wget https://raw.githubusercontent.com/lledyl/gctr/master/gfilter.txt -O gfilter.txt
 wget https://gist.githubusercontent.com/pawelszydlo/e2e1fc424f2c9d306f3a/raw/c26087d4b4f696bd373b02c0e294fb92dec1039a/transmission_remove_finished.sh -O transmission_remove_finished.sh
 mv transmission_remove_finished.sh .rtorrents.sh
-sudo mkdir /c
-sudo mkdir /s
-sudo chmod -R 777 /c
-sudo chmod -R 777 /s
-sudo chown -R $USER:$USER /c
-sudo chown -R $USER:$USER /s
-sudo mkdir /c/rarbg
-cd /c/rarbg
+sudo mkdir /completed
+sudo mkdir /session
+sudo chmod -R 777 /completed
+sudo chmod -R 777 /session
+sudo chown -R $USER:$USER /completed
+sudo chown -R $USER:$USER /session
+sudo mkdir /completed/video_files_only
+cd /completed/video_files_only
 sudo touch deletemeifyoucan
 sudo chattr +i deletemeifyoucan
 cd $home
 
-echo "sudo nano /etc/transmission-daemon/settings.json" >> help.txt
-echo "~/flexget/bin/flexget --test execute" >> help.txt
-echo "sudo service transmission-daemon start" >> help.txt
-echo "mv gs/temp/*/*.* gs/temp/" >> help.txt
-echo "find /dir -type d -empty -print" >> help.txt
-echo "@reboot rm -r /s/*
-* * * * * sudo chown -R $USER:$USER /c/*
-* * * * * sh /home/$USER/gsupload.sh" >> help.txt
+echo "sudo nano /etc/transmission-daemon/settings.json" >> help_commmands.txt
+echo "~/flexget/bin/flexget --test execute" >> help_commmands.txt
+echo "sudo service transmission-daemon start stop restart" >> help_commmands.txt
+echo "find /dir -type d -empty -print -delete" >> help_commmands.txt
+
 
 crontab -l > mycron
-echo "* * * * * sudo chown -R $USER:$USER /c/*" >> mycron
+echo "* * * * * sh /home/$USER/gsupload.sh" >> mycron
 echo "*/30 * * * * ~/flexget/bin/flexget execute" >> mycron
+echo "* * * * * sudo chown -R $USER:$USER /completed/*" >> mycron
 echo "*/15 * * * * sh .rtorrents.sh" >> mycron
+echo "#@reboot rm -r /session/*" >> mycron
 crontab mycron
 rm mycron
