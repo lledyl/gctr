@@ -46,22 +46,10 @@ sudo touch deletemeifyoucan
 sudo chattr +i deletemeifyoucan
 cd $home
 
-
-alias upload='sh /home/$USER/upload.sh'
-alias flextest='~/flexget/bin/flexget --test execute'
-alias flexget='~/flexget/bin/flexget execute'
-alias esettings='sudo nano /etc/transmission-daemon/settings.json'
-alias tstop='sudo service transmission-daemon start'
-alias tstart='sudo service transmission-daemon stop'
-alias trestart='sudo service transmission-daemon restart'
-alias addswap='curl https://raw.githubusercontent.com/lledyl/gctr/master/addswap.sh | bash'
-
-
 echo "sudo nano /etc/transmission-daemon/settings.json" >> help_commmands.txt
 echo "~/flexget/bin/flexget --test execute" >> help_commmands.txt
 echo "sudo service transmission-daemon start stop restart" >> help_commmands.txt
 echo "find /dir -type d -empty -print -delete" >> help_commmands.txt
-
 
 crontab -l > mycron
 echo "* * * * * sh /home/$USER/upload.sh" >> mycron
@@ -71,3 +59,12 @@ echo "*/15 * * * * sh .clean_transmission.sh" >> mycron
 echo "#@reboot rm -r /session/*" >> mycron
 crontab mycron
 rm mycron
+
+alias upload='sh /home/$USER/upload.sh'
+alias flextest='~/flexget/bin/flexget --test execute'
+alias flexget='~/flexget/bin/flexget execute'
+alias esettings='sudo nano /etc/transmission-daemon/settings.json'
+alias tstart='sudo service transmission-daemon start'
+alias tstop='sudo service transmission-daemon stop'
+alias trestart='sudo service transmission-daemon restart'
+alias addswap='curl https://raw.githubusercontent.com/lledyl/gctr/master/addswap.sh | sudo bash'
