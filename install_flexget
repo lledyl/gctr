@@ -1,0 +1,22 @@
+#!/bin/bash/
+#Install on Ubuntu 20 LTS
+
+sudo apt-get update
+sudo apt-get -y install unzip
+sudo apt-get -y install nano
+sudo apt-get -y install bmon
+sudo apt-get -y install screen
+sudo apt-get -y install cron
+sudo apt-get -y install python3-venv
+python3 -m venv ~/flexget/
+cd ~/flexget/
+bin/pip install flexget
+source ~/flexget/bin/activate
+pip install transmission-rpc -U
+cd $home
+wget https://raw.githubusercontent.com/lledyl/gctr/master/config.yml -O config.yml
+wget https://raw.githubusercontent.com/lledyl/gctr/master/helpcommands.txt -O help.txt
+crontab -l > mycron
+echo "#*/30 * * * * ~/flexget/bin/flexget execute" >> mycron
+crontab mycron
+rm mycron
