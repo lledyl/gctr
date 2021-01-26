@@ -46,7 +46,7 @@ mv /completed/video_files_only/*-D.mp4 /c
 mv /completed/video_files_only/*-E.mp4 /c
 tput setaf 2; echo "Delete empty folders"
 tput setaf 7;
-find /completed/video_files_only/*  -type d -empty -delete
+find /completed/*  -type d -empty -delete
 tput setaf 2; echo "Moving files to Google drive"
 tput setaf 7;
 rclone move   /completed rclone_drive:folder  --min-age 61s --include-from filter.txt --size-only --delete-empty-src-dirs --ignore-existing -P --log-file=mylogfile.txt --drive-stop-on-upload-limit
