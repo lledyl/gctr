@@ -54,6 +54,8 @@ alias esettings='sudo nano /etc/transmission-daemon/settings.json'
 alias tstop='sudo service transmission-daemon start'
 alias tstart='sudo service transmission-daemon stop'
 alias trestart='sudo service transmission-daemon restart'
+alias addswap='curl https://raw.githubusercontent.com/lledyl/gctr/master/addswap.sh | bash'
+
 
 echo "sudo nano /etc/transmission-daemon/settings.json" >> help_commmands.txt
 echo "~/flexget/bin/flexget --test execute" >> help_commmands.txt
