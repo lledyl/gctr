@@ -50,6 +50,7 @@ echo "#@reboot rm -r /session/*" >> mycron
 crontab mycron
 rm mycron
 
+shopt -s expand_aliases
 alias upload='sh /home/$USER/upload.sh'
 alias flextest='~/flexget/bin/flexget --test execute'
 alias flexget='~/flexget/bin/flexget execute'
