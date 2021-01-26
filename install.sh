@@ -32,14 +32,10 @@ wget https://raw.githubusercontent.com/lledyl/gctr/master/upload.sh -O upload.sh
 chmod +x gsupload.sh
 wget https://raw.githubusercontent.com/lledyl/gctr/master/config.yml -O config.yml
 wget https://raw.githubusercontent.com/lledyl/gctr/master/filter.txt -O filter.txt
+wget https://raw.githubusercontent.com/lledyl/gctr/master/helpcommands.txt -O help.txt
+
 wget https://gist.githubusercontent.com/pawelszydlo/e2e1fc424f2c9d306f3a/raw/c26087d4b4f696bd373b02c0e294fb92dec1039a/transmission_remove_finished.sh -O transmission_remove_finished.sh
 mv transmission_remove_finished.sh .clean_transmission.sh
-
-
-echo "sudo nano /etc/transmission-daemon/settings.json" >> help_commmands.txt
-echo "~/flexget/bin/flexget --test execute" >> help_commmands.txt
-echo "sudo service transmission-daemon start stop restart" >> help_commmands.txt
-echo "find /dir -type d -empty -print -delete" >> help_commmands.txt
 
 crontab -l > mycron
 echo "* * * * * sh /home/$USER/upload.sh" >> mycron
@@ -49,16 +45,6 @@ echo "*/15 * * * * sh .clean_transmission.sh" >> mycron
 echo "#@reboot rm -r /session/*" >> mycron
 crontab mycron
 rm mycron
-
-shopt -s expand_aliases
-alias upload='sh /home/$USER/upload.sh'
-alias flextest='~/flexget/bin/flexget --test execute'
-alias flexget='~/flexget/bin/flexget execute'
-alias esettings='sudo nano /etc/transmission-daemon/settings.json'
-alias tstart='sudo service transmission-daemon start'
-alias tstop='sudo service transmission-daemon stop'
-alias trestart='sudo service transmission-daemon restart'
-alias addswap='curl https://raw.githubusercontent.com/lledyl/gctr/master/addswap.sh | sudo bash'
 
 sudo mkdir /completed
 sudo mkdir /session
