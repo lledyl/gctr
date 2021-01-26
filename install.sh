@@ -28,12 +28,12 @@ sudo mv combustion-release/ web
 sudo rm release.zip
 sudo service transmission-daemon start
 cd $home
-wget https://raw.githubusercontent.com/lledyl/gctr/master/gsupload.sh -O gsupload.sh
+wget https://raw.githubusercontent.com/lledyl/gctr/master/upload.sh -O upload.sh
 chmod +x gsupload.sh
 wget https://raw.githubusercontent.com/lledyl/gctr/master/config.yml -O config.yml
-wget https://raw.githubusercontent.com/lledyl/gctr/master/gfilter.txt -O gfilter.txt
+wget https://raw.githubusercontent.com/lledyl/gctr/master/filter.txt -O filter.txt
 wget https://gist.githubusercontent.com/pawelszydlo/e2e1fc424f2c9d306f3a/raw/c26087d4b4f696bd373b02c0e294fb92dec1039a/transmission_remove_finished.sh -O transmission_remove_finished.sh
-mv transmission_remove_finished.sh .rtorrents.sh
+mv transmission_remove_finished.sh .clean_transmission.sh
 sudo mkdir /completed
 sudo mkdir /session
 sudo chmod -R 777 /completed
@@ -53,10 +53,10 @@ echo "find /dir -type d -empty -print -delete" >> help_commmands.txt
 
 
 crontab -l > mycron
-echo "* * * * * sh /home/$USER/gsupload.sh" >> mycron
+echo "* * * * * sh /home/$USER/upload.sh" >> mycron
 echo "*/30 * * * * ~/flexget/bin/flexget execute" >> mycron
 echo "* * * * * sudo chown -R $USER:$USER /completed/*" >> mycron
-echo "*/15 * * * * sh .rtorrents.sh" >> mycron
+echo "*/15 * * * * sh .clean_transmission.sh" >> mycron
 echo "#@reboot rm -r /session/*" >> mycron
 crontab mycron
 rm mycron
