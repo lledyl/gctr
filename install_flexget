@@ -21,3 +21,7 @@ crontab -l > mycron
 echo "#*/30 * * * * ~/flexget/bin/flexget execute" >> mycron
 crontab mycron
 rm mycron
+
+sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
+sudo chmod a+rx /usr/local/bin/youtube-dl
+sudo ln -s /usr/bin/python3 /usr/local/bin/python
