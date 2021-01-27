@@ -6,7 +6,10 @@
 #run by using sh mega.sh
 #add this to crontab using * * * * * sh mega.sh
 
-PIDFILE=/home/YOURUSERNAME/megalock.pid
+#!/bin/bash
+
+PIDFILE=/home/$USER/mlock.pid
+
 if [ -f $PIDFILE ]
 then
   PID=$(cat $PIDFILE)
@@ -32,9 +35,7 @@ else
     exit 1
   fi
 fi
-echo "start mega copy"
-rclone copy RCLNOEMEGADRIVE: RCLONEGOOGLEDRIVE: --transfers 1 --drive-chunk-size 32M --bwlimit 225k --size-only  --ignore-existing -P
-echo "finished copy... starting clean up"
-rclone move RCLONEMEGADRIVE: RCLONEGOOGLEFRIVE: --transfers 1 --drive-chunk-size 32M --bwlimit 225k --size-only  --ignore-existing --delete-empty-src-dirs --delete-after -P
+#echo "start mega move"
+rclone move mega_drive: rclone_drive:mega --transfers 1 --drive-chunk-size 32M --bwlimit 225k --size-only  --ignore-existing --delete-empty-src-dirs --delete-after --transfers 1 -P
 echo "finished clean up"
 rm $PIDFILE
