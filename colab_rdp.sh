@@ -39,6 +39,9 @@ sudo touch .deletemeifyoucan
 sudo chattr +i .deletemeifyoucan
 cd $home
 
+sudo ln -s /session/ /home/$USER/Desktop/session
+sudo ln -s /completed/ /home/$USER/Desktop/completed
+
 wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
 sudo dpkg --install chrome-remote-desktop_current_amd64.deb
 sudo apt install --assume-yes --fix-broken
