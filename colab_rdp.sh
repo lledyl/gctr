@@ -3,7 +3,7 @@ printf "Installing RDP Be Patience... " >&2
 {
 sudo useradd -m COLAB
 sudo adduser COLAB sudo
-echo 'COLAB:8426' | sudo chpasswd
+echo 'COLAB:9061' | sudo chpasswd
 sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
 sudo apt-get update
 
@@ -17,6 +17,7 @@ sudo apt-get -y install transmission-cli  transmission-daemon
 sudo service transmission-daemon stop
 wget https://raw.githubusercontent.com/lledyl/gctr/master/settings.json
 sudo mv settings.json /etc/transmission-daemon/settings.json
+sed -i "s/USER/"$USER"/g" /etc/transmission-daemon/settings.json
 sudo usermod -a -G debian-transmission $USER
 cd /usr/share/transmission/
 sudo wget https://github.com/Secretmapper/combustion/archive/release.zip -O release.zip
