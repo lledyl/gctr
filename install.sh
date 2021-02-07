@@ -18,6 +18,7 @@ cd $home
 sudo apt-get -y install transmission-cli  transmission-daemon
 sudo service transmission-daemon stop
 wget https://raw.githubusercontent.com/lledyl/gctr/master/settings.json
+sed -i "s/USER/"$USER"/g" /etc/transmission-daemon/settings.json
 sudo mv settings.json /etc/transmission-daemon/settings.json
 sudo usermod -a -G debian-transmission $USER
 cd /usr/share/transmission/
