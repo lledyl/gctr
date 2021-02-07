@@ -17,7 +17,6 @@ sudo apt-get -y install transmission-cli  transmission-daemon
 sudo service transmission-daemon stop
 wget https://raw.githubusercontent.com/lledyl/gctr/master/settings.json
 sudo mv settings.json /etc/transmission-daemon/settings.json
-sed -i "s/USER/"$USER"/g" /etc/transmission-daemon/settings.json
 sudo usermod -a -G debian-transmission $USER
 cd /usr/share/transmission/
 sudo wget https://github.com/Secretmapper/combustion/archive/release.zip -O release.zip
@@ -28,15 +27,14 @@ sudo rm release.zip
 sudo service transmission-daemon start
 cd $home
 
-sudo mkdir /home/$USER/Downloads
-sudo mkdir /home/$USER/Downloads/completed
-sudo mkdir /home/$USER/Downloads/session
-sudo chmod -R 777 /home/$USER/Downloads/completed
-sudo chmod -R 777 /home/$USER/Downloads/session
-sudo chown -R $USER:$USER /home/$USER/Downloads/completed
-sudo chown -R $USER:$USER /home/$USER/Downloads/session
-sudo mkdir /home/$USER/Downloads/completed/video_files_only
-cd /home/$USER/Downloads/completed/video_files_only
+sudo mkdir /completed
+sudo mkdir /session
+sudo chmod -R 777 /completed
+sudo chmod -R 777 /session
+sudo chown -R $USER:$USER /completed
+sudo chown -R $USER:$USER /session
+sudo mkdir /completed/video_files_only
+cd /completed/video_files_only
 sudo touch .deletemeifyoucan
 sudo chattr +i .deletemeifyoucan
 cd $home
