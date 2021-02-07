@@ -27,6 +27,19 @@ sudo rm release.zip
 sudo service transmission-daemon start
 cd $home
 
+sudo mkdir /home/$USER/Downloads
+sudo mkdir /home/$USER/Downloads/completed
+sudo mkdir /home/$USER/Downloads/session
+sudo chmod -R 777 /home/$USER/Downloads/completed
+sudo chmod -R 777 /home/$USER/Downloads/session
+sudo chown -R $USER:$USER /home/$USER/Downloads/completed
+sudo chown -R $USER:$USER /home/$USER/Downloads/session
+sudo mkdir /home/$USER/Downloads/completed/video_files_only
+cd /home/$USER/Downloads/completed/video_files_only
+sudo touch .deletemeifyoucan
+sudo chattr +i .deletemeifyoucan
+cd $home
+
 wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
 sudo dpkg --install chrome-remote-desktop_current_amd64.deb
 sudo apt install --assume-yes --fix-broken
