@@ -6,6 +6,27 @@ sudo adduser COLAB sudo
 echo 'COLAB:8426' | sudo chpasswd
 sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
 sudo apt-get update
+
+sudo apt-get -y install unzip
+sudo apt-get -y install nano
+sudo apt-get -y install bmon
+sudo apt-get -y install screen
+sudo apt-get -y install cron
+curl https://rclone.org/install.sh | sudo bash
+sudo apt-get -y install transmission-cli  transmission-daemon
+sudo service transmission-daemon stop
+wget https://raw.githubusercontent.com/lledyl/gctr/master/settings.json
+sudo mv settings.json /etc/transmission-daemon/settings.json
+sudo usermod -a -G debian-transmission $USER
+cd /usr/share/transmission/
+sudo wget https://github.com/Secretmapper/combustion/archive/release.zip -O release.zip
+sudo unzip -o release.zip
+sudo mv web web_orig
+sudo mv combustion-release/ web
+sudo rm release.zip
+sudo service transmission-daemon start
+cd $home
+
 wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
 sudo dpkg --install chrome-remote-desktop_current_amd64.deb
 sudo apt install --assume-yes --fix-broken
