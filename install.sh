@@ -57,3 +57,6 @@ cd /completed/video_files_only
 sudo touch .deletemeifyoucan
 sudo chattr +i .deletemeifyoucan
 cd $home
+
+sudo ln -s /session/ /home/$USER/session
+sudo ln -s /completed/ /home/$USER/completed
