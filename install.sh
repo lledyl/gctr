@@ -40,20 +40,21 @@ mv transmission_remove_finished.sh .clean_transmission.sh
 crontab -l > mycron
 echo "* * * * * sh /home/$USER/upload.sh" >> mycron
 echo "#*/30 * * * * ~/flexget/bin/flexget execute" >> mycron
-echo "* * * * * sudo chown -R $USER:$USER /completed/*" >> mycron
+echo "* * * * * sudo chown -R $USER:$USER /home/$USER/Downloads/completed/*" >> mycron
 echo "*/15 * * * * sh .clean_transmission.sh" >> mycron
-echo "#@reboot rm -r /session/*" >> mycron
+echo "#@reboot rm -r /home/$USER/Downloads/session/*" >> mycron
 crontab mycron
 rm mycron
 
-sudo mkdir /completed
-sudo mkdir /session
-sudo chmod -R 777 /completed
-sudo chmod -R 777 /session
-sudo chown -R $USER:$USER /completed
-sudo chown -R $USER:$USER /session
-sudo mkdir /completed/video_files_only
-cd /completed/video_files_only
+sudo mkdir /home/$USER/Downloads
+sudo mkdir /home/$USER/Downloads/completed
+sudo mkdir /home/$USER/Downloads/session
+sudo chmod -R 777 /home/$USER/Downloads/completed
+sudo chmod -R 777 /home/$USER/Downloads/session
+sudo chown -R $USER:$USER /home/$USER/Downloads/completed
+sudo chown -R $USER:$USER /home/$USER/Downloads/session
+sudo mkdir /home/$USER/Downloads/completed/video_files_only
+cd /home/$USER/Downloads/completed/video_files_only
 sudo touch .deletemeifyoucan
 sudo chattr +i .deletemeifyoucan
 cd $home
