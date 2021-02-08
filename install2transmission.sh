@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 
 sudo mkdir /completed2
 sudo mkdir /session2
