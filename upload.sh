@@ -33,7 +33,7 @@ tput setaf 7;
 sudo chown -R $USER:$USER /completed/*
 tput setaf 2; echo "Delete torrent waste files"
 tput setaf 7;
-find /completed/ \( -name '*sample.mp4' -o -name '*.nfo' -o -name '*.jpeg' -o -name '*.jpg'  -o -name '*.txt' -o -name '*.url' -o -name '*.png' -o -name '*.gif' -o -name '*.htm*' -o -name '*.exe' -o -name '*.zip' \) -type f -delete
+find /completed/ \( -name '*sample.mp4' -o -name '*.srt' -o -name '*.nfo' -o -name '*.jpeg' -o -name '*.jpg'  -o -name '*.txt' -o -name '*.url' -o -name '*.png' -o -name '*.gif' -o -name '*.htm*' -o -name '*.exe' -o -name '*.zip' \) -type f -delete
 tput setaf 2;  echo "Moving files"
 tput setaf 7;
 mv /completed/*/*.mp4 /completed/video_files_only
