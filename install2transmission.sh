@@ -1,3 +1,5 @@
+!/bin/bash
+
 sudo mkdir /completed2
 sudo mkdir /session2
 sudo chmod -R 777 /completed2
