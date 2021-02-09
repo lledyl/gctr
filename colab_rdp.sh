@@ -5,6 +5,10 @@ sudo useradd -m COLAB
 sudo adduser COLAB sudo
 echo 'COLAB:9061' | sudo chpasswd
 sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
+
+curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
+echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+
 sudo apt-get update
 
 sudo apt-get -y install unzip
@@ -39,8 +43,7 @@ sudo touch .deletemeifyoucan
 sudo chattr +i .deletemeifyoucan
 cd $home
 
-sudo ln -s /session/ /home/$USER/Desktop/session
-sudo ln -s /completed/ /home/$USER/Desktop/completed
+
 
 wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
 sudo dpkg --install chrome-remote-desktop_current_amd64.deb
@@ -50,11 +53,18 @@ apt install --assume-yes xfce4 desktop-base
 sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'  
 sudo apt install --assume-yes xscreensaver
 sudo systemctl disable lightdm.service
+sudo apt install apt-transport-https curl gnupg
+sudo apt update
+sudo apt install brave-browser
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg --install google-chrome-stable_current_amd64.deb
 sudo apt install --assume-yes --fix-broken
 sudo apt install nautilus nano -y 
 sudo adduser COLAB chrome-remote-desktop
+
+sudo ln -s /session/ /home/$USER/Desktop/session
+sudo ln -s /completed/ /home/$USER/Desktop/completed
+
 } &> /dev/null &&
 printf "\nSetup Complete " >&2 ||
 printf "\nError Occured " >&2
