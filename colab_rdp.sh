@@ -8,9 +8,9 @@ sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
 
 curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
 echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+curl https://raw.githubusercontent.com/lledyl/gctr/master/install2transmission.sh | sudo bash
 
 sudo apt-get update
-
 sudo apt-get -y install unzip
 sudo apt-get -y install nano
 sudo apt-get -y install bmon
@@ -43,8 +43,6 @@ sudo touch .deletemeifyoucan
 sudo chattr +i .deletemeifyoucan
 cd $home
 
-
-
 wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
 sudo dpkg --install chrome-remote-desktop_current_amd64.deb
 sudo apt install --assume-yes --fix-broken
@@ -62,8 +60,8 @@ sudo apt install --assume-yes --fix-broken
 sudo apt install nautilus nano -y 
 sudo adduser COLAB chrome-remote-desktop
 
-sudo ln -s /session/ /home/$USER/Desktop/session
-sudo ln -s /completed/ /home/$USER/Desktop/completed
+ln -s /session/ /home/COLAB/Desktop/session
+ln -s /completed/ /home/COLAB/Desktop/completed
 
 } &> /dev/null &&
 printf "\nSetup Complete " >&2 ||
