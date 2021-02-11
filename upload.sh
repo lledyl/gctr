@@ -39,11 +39,11 @@ tput setaf 7;
 mv /completed/*/*.mp4 /completed/video_files_only
 mv /completed/*/*.mkv /completed/video_files_only
 mv /completed/*/*.wma /completed/video_files_only
-mv /completed/video_files_only/*-A.mp4 /c
-mv /completed/video_files_only/*-B.mp4 /c
-mv /completed/video_files_only/*-C.mp4 /c
-mv /completed/video_files_only/*-D.mp4 /c
-mv /completed/video_files_only/*-E.mp4 /c
+mv /completed/video_files_only/*-A.mp4 /completed
+mv /completed/video_files_only/*-B.mp4 /completed
+mv /completed/video_files_only/*-C.mp4 /completed
+mv /completed/video_files_only/*-D.mp4 /completed
+mv /completed/video_files_only/*-E.mp4 /completed
 tput setaf 2; echo "Delete empty folders"
 tput setaf 7;
 find /completed/*  -type d -empty -delete
