@@ -13,6 +13,7 @@ curl https://raw.githubusercontent.com/lledyl/gctr/master/install2transmission.s
 sudo apt-get update
 sudo apt-get -y install unzip
 sudo apt-get -y install nano
+sudo apt-get -y install vlc
 sudo apt-get -y install bmon
 sudo apt-get -y install screen
 sudo apt-get -y install cron
