@@ -19,7 +19,8 @@ sudo apt-get -y install screen
 sudo apt-get -y install cron
 curl https://rclone.org/install.sh | sudo bash
 
-curl https://download2.tixati.com/download/tixati_2.81-1_amd64.deb | sudo dpkg --install tixati_2.81-1_amd64.deb
+sudo apt install gdebi
+wget https://download2.tixati.com/download/tixati_2.81-1_amd64.deb | https://download2.tixati.com/download/tixati_2.81-1_amd64.deb
 
 sudo apt-get -y install transmission-cli  transmission-daemon
 sudo service transmission-daemon stop
