@@ -30,26 +30,26 @@ fi
 tput setaf 2; echo "No duplicate process found"
 tput setaf 2; echo "Change permissions"
 tput setaf 7;
-sudo chown -R $USER:$USER /completed/*
+sudo chown -R $USER:$USER /complete/*
 tput setaf 2; echo "Delete torrent waste files"
 tput setaf 7;
-find /completed/ \( -name '*sample.mp4' -o -name '*.srt' -o -name '*.nfo' -o -name '*.jpeg' -o -name '*.jpg'  -o -name '*.txt' -o -name '*.url' -o -name '*.png' -o -name '*.gif' -o -name '*.htm*' -o -name '*.exe' -o -name '*.zip' \) -type f -delete
+find /complete/ \( -name '*sample.mp4' -o -name '*.srt' -o -name '*.nfo' -o -name '*.jpeg' -o -name '*.jpg'  -o -name '*.txt' -o -name '*.url' -o -name '*.png' -o -name '*.gif' -o -name '*.htm*' -o -name '*.exe' -o -name '*.zip' \) -type f -delete
 tput setaf 2;  echo "Moving files"
 tput setaf 7;
-mv /completed/*/*.mp4 /completed/video_files_only
-mv /completed/*/*.mkv /completed/video_files_only
-mv /completed/*/*.wma /completed/video_files_only
-mv /completed/video_files_only/*-A.mp4 /completed
-mv /completed/video_files_only/*-B.mp4 /completed
-mv /completed/video_files_only/*-C.mp4 /completed
-mv /completed/video_files_only/*-D.mp4 /completed
-mv /completed/video_files_only/*-E.mp4 /completed
+mv /complete/*/*.mp4 /complete/video_files_only
+mv /complete/*/*.mkv /complete/video_files_only
+mv /complete/*/*.wma /complete/video_files_only
+mv /complete/video_files_only/*-A.mp4 /complete
+mv /complete/video_files_only/*-B.mp4 /complete
+mv /complete/video_files_only/*-C.mp4 /complete
+mv /complete/video_files_only/*-D.mp4 /complete
+mv /complete/video_files_only/*-E.mp4 /complete
 tput setaf 2; echo "Delete empty folders"
 tput setaf 7;
-find /completed/*  -type d -empty -delete
+find /complete/*  -type d -empty -delete
 tput setaf 2; echo "Moving files to Google drive"
 tput setaf 7;
-rclone move   /completed rclone_drive:folder  --min-age 61s --include-from filter.txt --size-only --delete-empty-src-dirs --ignore-existing -P --log-file=mylogfile.txt --drive-stop-on-upload-limit
+rclone move   /complete rclone_drive:folder  --min-age 61s --include-from filter.txt --size-only --delete-empty-src-dirs --ignore-existing -P --log-file=mylogfile.txt --drive-stop-on-upload-limit
 tput setaf 2; echo "Cleaning transmission"
 tput setaf 7;
 sh .clean_transmission.sh
