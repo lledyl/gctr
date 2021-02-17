@@ -41,7 +41,7 @@ sudo mv combustion-release/ web
 sudo rm release.zip
 sudo service transmission-daemon start
 cd $home
-wget https://raw.githubusercontent.com/lledyl/gctr/master/upload.sh -O upload.sh
+wget https://raw.githubusercontent.com/lledyl/gctr/master/myupload.sh -O upload.sh
 chmod +x gsupload.sh
 wget https://raw.githubusercontent.com/lledyl/gctr/master/config.yml -O config.yml
 wget https://raw.githubusercontent.com/lledyl/gctr/master/filter.txt -O filter.txt
