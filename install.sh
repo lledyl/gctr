@@ -68,4 +68,4 @@ sudo swapon --show
 sudo echo "/swapfile swap swap defaults 0 0" >> /etc/fstab
 sudo cat /proc/sys/vm/swappiness
 sudo sysctl vm.swappiness=10
-sudo echo "vm.swappiness=10" >> /etc/sysctl.conf
+echo vm.swappiness=10 | sudo tee -a /etc/sysctl.conf
