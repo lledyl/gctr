@@ -40,23 +40,23 @@ mv transmission_remove_finished.sh .clean_transmission.sh
 crontab -l > mycron
 echo "* * * * * sh /home/$USER/upload.sh" >> mycron
 echo "#*/30 * * * * ~/flexget/bin/flexget execute" >> mycron
-echo "* * * * * sudo chown -R $USER:$USER /completed/*" >> mycron
+echo "* * * * * sudo chown -R $USER:$USER /complete/*" >> mycron
 echo "*/15 * * * * sh .clean_transmission.sh" >> mycron
-echo "#@reboot rm -r /session/*" >> mycron
+echo "#@reboot rm -r /incomplete/*" >> mycron
 crontab mycron
 rm mycron
 
-sudo mkdir /completed
-sudo mkdir /session
-sudo chmod -R 777 /completed
-sudo chmod -R 777 /session
-sudo chown -R $USER:$USER /completed
-sudo chown -R $USER:$USER /session
-sudo mkdir /completed/video_files_only
-cd /completed/video_files_only
+sudo mkdir /complete
+sudo mkdir /incomplete
+sudo chmod -R 777 /complete
+sudo chmod -R 777 /incomplete
+sudo chown -R $USER:$USER /complete
+sudo chown -R $USER:$USER /incomplete
+sudo mkdir /complete/video_files_only
+cd /complete/video_files_only
 sudo touch .deletemeifyoucan
 sudo chattr +i .deletemeifyoucan
 cd $home
 
-sudo ln -s /session/ /home/$USER/session
-sudo ln -s /completed/ /home/$USER/completed
+sudo ln -s /incomplete/ /home/$USER/incomplete
+sudo ln -s /complete/ /home/$USER/complete
