@@ -61,14 +61,14 @@ rm mycron
 
 sudo mkdir /complete
 sudo mkdir /incomplete
-sudo chmod -R 777 /complete
-sudo chmod -R 777 /incomplete
-sudo chown -R $USER:$USER /complete
-sudo chown -R $USER:$USER /incomplete
 sudo mkdir /complete/video_files_only
 cd /complete/video_files_only
 sudo touch .deletemeifyoucan
 sudo chattr +i .deletemeifyoucan
+sudo chmod -R 777 /complete
+sudo chmod -R 777 /incomplete
+sudo chown -R $USER:$USER /complete
+sudo chown -R $USER:$USER /incomplete
 cd $home
 
 sudo ln -s /incomplete/ /home/$USER/incomplete
