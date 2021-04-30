@@ -7,16 +7,20 @@ sudo apt-get -y install nano
 sudo apt-get -y install bmon
 sudo apt-get -y install screen
 sudo apt-get -y install cron
+
 curl https://rclone.org/install.sh | sudo bash
+
 sudo apt-get -y install python3-venv
 python3 -m venv ~/flexget/
 cd ~/flexget/
 bin/pip install flexget
 source ~/flexget/bin/activate
 pip install transmission-rpc -U
+
 cd $home
 sudo apt-get -y install transmission-cli  transmission-daemon
 sudo service transmission-daemon stop
+sleep 5
 wget https://raw.githubusercontent.com/lledyl/gctr/master/settings.json
 sudo mv settings.json /etc/transmission-daemon/settings.json
 sudo usermod -a -G debian-transmission $USER
@@ -27,6 +31,8 @@ sudo mv web web_orig
 sudo mv combustion-release/ web
 sudo rm release.zip
 sudo service transmission-daemon start
+sleep 5
+
 cd $home
 wget https://raw.githubusercontent.com/lledyl/gctr/master/upload.sh -O upload.sh
 chmod +x gsupload.sh
