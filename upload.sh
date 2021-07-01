@@ -33,7 +33,7 @@ tput setaf 7;
 sudo chown -R $USER:$USER /complete/*
 tput setaf 2; echo "Moving files to Google drive"
 tput setaf 7;
-rclone move   /complete rclone_drive:folder  --min-age 61s --include-from filter.txt --size-only --delete-empty-src-dirs --ignore-existing -P --log-file=mylogfile.txt --drive-stop-on-upload-limit
+rclone move   /complete Downloads:folder  --min-age 61s --include-from filter.txt --size-only --delete-empty-src-dirs --ignore-existing -P --log-file=rclone.log --drive-stop-on-upload-limit
 tput setaf 2; echo "Delete lock file"
 rm $PIDFILE
 echo "Done"
