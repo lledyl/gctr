@@ -1,10 +1,18 @@
 tasks:
   task-a:
-    rss: https://rarbg.to/rssdd.php?categories=14;15;16;17;21;22;42;44;45;46;47;48
-    quality:
-      - 1080p
-    regexp:
-      accept:
-        - webrip
-    transmission:
-      path: /completed
+    rss: https://sukebei.nyaa.si/?page=rss&q=HD&c=0_0&f=0&u=offkab
+    accept_all: yes
+    content_filter:
+     require_all:
+      - '*.mkv'
+      - '*.mp4'
+      - '*.srt'
+    transmission: yes
+  task-b:
+    rss: https://sukebei.nyaa.si/?page=rss&q=Uncensored&c=0_0&f=0&u=NewDragon
+    accept_all: yes
+    content_filter:
+     require_all:
+      - '*.mkv'
+      - '*.mp4'
+    transmission: yes
