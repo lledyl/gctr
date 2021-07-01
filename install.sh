@@ -2,6 +2,7 @@
 #Install on Ubuntu 20 LTS
 
 sudo apt-get update
+sudo apt-get -y install wget
 sudo apt-get -y install unzip
 sudo apt-get -y install nano
 sudo apt-get -y install bmon
